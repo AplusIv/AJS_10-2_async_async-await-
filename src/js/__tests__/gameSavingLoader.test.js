@@ -12,5 +12,4 @@ test('should parse object with requested data or throw error', async () => {
     },
   };
   await expect(GameSavingLoader.load()).resolves.toEqual(expected);
-  // ??? Почему возвращается undefined?
 });

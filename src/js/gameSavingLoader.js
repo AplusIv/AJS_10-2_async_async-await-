@@ -3,8 +3,11 @@ import read from './reader';
 
 export default class GameSavingLoader {
   static load() {
-    (async () => {
-      try {
+    return (async () => {
+      const data = await read();
+      const result = await json(data);
+      return JSON.parse(result);
+      /*  try {
         const data = await new Promise((resolve) => resolve(read()));
         const resultStr = await new Promise((resolve) => resolve(json(data)));
         const result = JSON.parse(resultStr);
@@ -14,7 +17,7 @@ export default class GameSavingLoader {
         // (просто пусто, будто ничего не отработало)
       } catch (err) {
         throw new Error(err);
-      }
-    })(); // ??? За что отвечают скобочки "()" в конце строки? (async ()=>{...})()
+      } */
+    })();
   }
 }
